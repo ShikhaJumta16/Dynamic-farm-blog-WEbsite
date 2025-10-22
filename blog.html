@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Farm Blog</title>
+  <link rel="stylesheet" href="style1.css">
+  <style>
+    /* Top-right logout button */
+    #logoutBtn {
+      float: right;
+      margin-right: 10px;
+      padding: 5px 10px;
+      background-color: #f44336;
+      color: white;
+      border: none;
+      cursor: pointer;
+      border-radius: 4px;
+    }
+
+    #logoutBtn:hover {
+      background-color: #d32f2f;
+    }
+
+    nav ul {
+      list-style: none;
+      padding: 0;
+      display: flex;
+      align-items: center;
+    }
+
+    nav ul li {
+      margin-right: 20px;
+    }
+  </style>
+</head>
+<body class="blog">
+  <header>
+    <nav>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="apples.html">Apples</a></li>
+        <li><a href="cherries.html">Cherries</a></li>
+        <li><a href="blog.html">Blogs</a></li>
+        <li><button id="logoutBtn">Logout</button></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <h1>Farm Blog</h1>
+
+    <!-- Post form visible only if logged-in -->
+    <form id="postForm" style="display:none;">
+      <input type="text" id="title" placeholder="Post title" required><br><br>
+      <textarea id="content" placeholder="Write your post..." required></textarea><br><br>
+      <button type="submit">Publish</button>
+    </form>
+
+    <section id="posts"></section>
+  </main>
+
+  <script>
+    async function checkLogin() {
+      // Show post form if logged-in
+      try {
+        const res = await fetch("/posts", { method: "POST", headers: {"Content-Type":"application/json"}, body: "{}" });
+        if (res.status !== 401) document.getElementById("postForm").style.display = "block";
+      } catch {}
+    }
+
+    checkLogin();
+
+    document.getElementById("logoutBtn").addEventListener("click", async () => {
+      await fetch("/logout", { method: "POST" });
+      window.location.href = "login.html";
+    });
+
+    document.getElementById("postForm").addEventListener("submit", async (e) => {
+      e.preventDefault();
+      const title = document.getElementById("title").value;
+      const content = document.getElementById("content").value;
+
+      const res = await fetch("/posts", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ title, content })
+      });
+
+      const data = await res.json();
+      if (data.success) {
+        alert("Post added!");
+        location.reload();
+      }
+    });
+
+    // Display all posts (filter out invalid)
+    fetch("/posts")
+      .then(res => res.json())
+      .then(posts => {
+        const section = document.getElementById("posts");
+        posts
+          .filter(p => p.title && p.content) // remove undefined posts
+          .forEach(p => {
+            const div = document.createElement("div");
+            div.innerHTML = `<h3>${p.title}</h3><p>${p.content}</p><hr>`;
+            section.appendChild(div);
+          });
+      });
+  </script>
+</body>
+</html>

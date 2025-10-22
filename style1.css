@@ -1,0 +1,267 @@
+/* Common Styles */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+header {
+    background-color: #333;
+    padding: 15px;
+}
+
+header ul {
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    margin: 0;
+    padding: 0;
+}
+
+header ul li {
+    margin: 0 15px;
+}
+
+header ul li a {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+main {
+    text-align: center;
+}
+
+footer {
+    background-color: #333;
+    color: white;
+    padding: 10px;
+    text-align: center;
+}
+
+/* Homepage Hero Video */
+body.home .video-container {
+    position: relative;
+    width: 100%;
+    height: 80vh;
+    overflow: hidden;
+}
+
+body.home .main-video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    margin: 0;
+}
+
+body.home .overlay-text {
+    position: absolute;
+    top: 20%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    color: white;
+    text-shadow: 2px 2px 10px rgba(0,0,0,0.7);
+    padding: 20px;
+}
+
+body.home .overlay-text h1 {
+    font-size: 3rem;
+    margin-bottom: 15px;
+}
+
+body.home .overlay-text p {
+    font-size: 1.2rem;
+}
+
+/* Farm Section Background */
+.farms-section .farm-bg {
+    background-image: url('images/farm.jpg'); /* your farm image */
+    background-size: cover;       /* make image cover entire container */
+    background-position: top center; /* align image to the top */
+    background-repeat: no-repeat; /* prevent repeating */
+    width: 100%;
+    height: 60vh;                 /* adjust height as needed */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}
+
+
+/* Overlay text on farm image */
+.farms-section .farm-overlay-text {
+    background-color: rgba(0, 0, 0, 0.5); /* semi-transparent background for readability */
+    color: white;
+    padding: 30px;
+    max-width: 800px;
+    text-align: center;
+    border-radius: 10px;
+}
+
+.farms-section .farm-overlay-text h2 {
+    font-size: 2.5rem;
+    margin-bottom: 15px;
+}
+
+.farms-section .farm-overlay-text p {
+    font-size: 1.2rem;
+    line-height: 1.5;
+}
+/* Apples Section */
+.fruits-section.apples-section {
+    background-color: #fff3e0; /* light orange */
+    padding: 40px 20px;
+    text-align: center;
+}
+
+/* Cherries Section */
+.fruits-section.cherries-section {
+    background-color: #fce4ec; /* light pink */
+    padding: 40px 20px;
+    text-align: center;
+}
+
+/* Headings and paragraph styling */
+.fruits-section h2 {
+    font-size: 2rem;
+    margin-bottom: 15px;
+    color: #333;
+}
+
+.fruits-section p {
+    font-size: 1.2rem;
+    color: #555;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+ body.apples {
+  background-color: lightgreen;
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+/* Keep the navbar normal */
+nav ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  background-color: #333;
+  overflow: hidden;
+}
+
+nav ul li {
+  display: inline-block;
+}
+
+nav ul li a {
+  color: white;
+  padding: 14px 20px;
+  display: block;
+  text-decoration: none;
+}
+
+nav ul li a:hover {
+  background-color: #555;
+}
+
+/* Fruit gallery - this part arranges the apples left to right */
+.fruit-gallery {
+  display: flex;              /* This puts them in a row */
+  justify-content: center;    /* Centers them horizontally */
+  gap: 20px;                  /* Adds space between images */
+  margin-top: 20px;
+}
+
+.fruit-gallery div {
+  text-align: center;
+}
+
+.fruit-gallery img {
+  width: 200px;
+  height: 200px;
+  border-radius: 10px;
+  object-fit: cover;
+}
+
+footer {
+  text-align: center;
+  padding: 15px;
+  background-color: #333;
+  color: white;
+  margin-top: 20px;
+}
+/* General Page Styling */
+body.cherries {
+  background-color: #ffe6e6; /* soft cherry pink */
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+/* Navbar */
+nav ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  background-color: #333;
+  overflow: hidden;
+}
+
+nav ul li {
+  display: inline-block;
+}
+
+nav ul li a {
+  color: white;
+  padding: 14px 20px;
+  display: block;
+  text-decoration: none;
+}
+
+nav ul li a:hover {
+  background-color: #555;
+}
+
+/* Gallery layout */
+.fruit-gallery {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 25px;
+  margin-top: 30px;
+  flex-wrap: wrap; /* makes it responsive */
+}
+
+.fruit-gallery div {
+  text-align: center;
+}
+
+.fruit-gallery img {
+  width: 200px;
+  height: 200px;
+  border-radius: 10px;
+  object-fit: cover;
+  box-shadow: 0 0 8px rgba(0,0,0,0.2);
+}
+
+/* Footer */
+footer {
+  text-align: center;
+  padding: 15px;
+  background-color: #333;
+  color: white;
+  margin-top: 30px;
+}
+/* Add this section for blog page */
+body.blog {
+    background-color: rgb(0, 255, 234); /* Change background to blue */
+    color:black; /* Optional: change text color for contrast */
+}
+
+
+
+
