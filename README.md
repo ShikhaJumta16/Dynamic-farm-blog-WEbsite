@@ -26,4 +26,4 @@ A simple web application to create, view, and manage blog posts. Users must log 
 1. Clone the repository:
 ```bash
 git clone https://github.com/USERNAME/farm-blog.git
-cd farm-blog
+cd Dynamic-farm-blog-WEbsite
